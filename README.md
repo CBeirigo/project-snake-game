@@ -1,2 +1,2 @@
 # project-snake-game
-The famous snake game created with JavaScript
+The clasic snake game created with JavaScript
