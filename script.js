@@ -12,20 +12,34 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box,
 }
 
+
+
+document.querySelector('button').addEventListener('click', () => {
+
+    let canvas = document.querySelector('canvas');
+    canvas.classList.remove('active');
+
+    let button = document.querySelector('button');
+    button.classList.add('active');
+    
+
+})
+
+
 function createBG() {
-    context.fillStyle = "lightgreen";
+    context.fillStyle = "#2A272A";
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
 function createSnake() {
     for (i = 0; i < snake.length; i++) {
-        context.fillStyle = "green";
+        context.fillStyle = "#149414";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
 
 function drawnFood() {
-    context.fillStyle = "red";
+    context.fillStyle = "#FF2F43";
     context.fillRect(food.x, food.y, box, box);
 }
 
@@ -44,8 +58,8 @@ function startGame() {
     if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if (snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
 
-    for(i = 1; i < snake.length; i++){
-        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+    for (i = 1; i < snake.length; i++) {
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(game);
             alert('Game Over :(')
         }
